@@ -1,11 +1,14 @@
 package com.example.sixmaresttest;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.example.sixmaresttest.Person;
 
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Integer>
+public interface PersonRepository extends CrudRepository<Person, String>
 {
+
+    @Query(value = "select new  com.example.sixmaresttest.PeopleSummary(id,name,middleName,lastName,secondLastName) from PEOPLE")
+    Iterable<PeopleSummary> nameAndId();
 }

@@ -4,6 +4,10 @@ package com.example.sixmaresttest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
+
+@CrossOrigin(origins = "*")
 @RestController
 public class PersonController
 {
@@ -21,9 +25,10 @@ public class PersonController
     public void createPerson(String id){}
     //Read
     @GetMapping("/person/{person_id}")
-    public void getPersonDetails(@PathVariable String id)
+    public Optional<Person> getPersonDetails(@PathVariable String person_id)
     {
-
+        Optional<Person> p =  pService.findPerson(person_id);
+        return pService.findPerson(person_id);
 
     }
 
@@ -37,6 +42,11 @@ public class PersonController
     public void deletePerson(@PathVariable String id){}
 
 
+
+
+    //Lightweight list
+    @GetMapping("/shortlist")
+    public Iterable<PeopleSummary> listNameAndId(){return pService.nameId();}
 
     //List people
     @GetMapping("/peoplelist")

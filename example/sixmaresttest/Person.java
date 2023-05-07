@@ -18,9 +18,8 @@ public class Person
 
 
 @Id
-private long id;
-
-private String name;
+private String id;
+private String   name;
 private String lastName;
 private String middleName;
 private String secondLastName;
@@ -38,7 +37,7 @@ private String state;
 private String birthPlace;
 private Date dateOfDeath;
 
-private boolean adfanHasDCertCpy;
+private boolean adfanHasBcertCpy;
 private String hairColor;
 private String eyeColor;
 private int height;
@@ -51,10 +50,19 @@ private String religion;
 private boolean needsInterpreter;
 private String civilStatus;
 private String secondLanguage;
+    public Person(String id, String name, String lastName, String middleName, String secondLastName)
+    {
+            this.id = id;
+            this.name = name;
+            this.lastName = lastName;
+            this.middleName = middleName;
+            this.secondLastName = secondLastName;
+            }
+
 
     public Person(){}
 
-    public Person(long id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasDCertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage)
+    public Person(String id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage)
     {
         this.id = id;
         this.name = name;
@@ -73,7 +81,7 @@ private String secondLanguage;
         this.state = state;
         this.birthPlace = birthPlace;
         this.dateOfDeath = dateOfDeath;
-        this.adfanHasDCertCpy = adfanHasDCertCpy;
+        this.adfanHasBcertCpy = adfanHasBcertCpy;
         this.hairColor = hairColor;
         this.eyeColor = eyeColor;
         this.height = height; // inches
@@ -88,12 +96,12 @@ private String secondLanguage;
     }
 
 
-    public long getId()
+    public String getId()
     {
         return id;
     }
 
-    public void setId(long id)
+    public void setId(String id)
     {
         this.id = id;
     }
@@ -258,14 +266,14 @@ private String secondLanguage;
         this.dateOfDeath = dateOfDeath;
     }
 
-        public boolean isAdfanHasDCertCpy()
+        public boolean isadfanHasBcertCpy()
     {
-        return adfanHasDCertCpy;
+        return adfanHasBcertCpy;
     }
 
-    public void setAdfanHasDCertCpy(boolean adfanHasDCertCpy)
+    public void setadfanHasBcertCpy(boolean adfanHasBcertCpy)
     {
-        this.adfanHasDCertCpy = adfanHasDCertCpy;
+        this.adfanHasBcertCpy = adfanHasBcertCpy;
     }
 
     public String getHairColor()
