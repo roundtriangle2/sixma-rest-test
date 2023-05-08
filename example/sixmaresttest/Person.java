@@ -50,6 +50,12 @@ private String religion;
 private boolean needsInterpreter;
 private String civilStatus;
 private String secondLanguage;
+private String prefix;
+
+
+
+    private boolean isDfCustodian;
+private String custodyType;
     public Person(String id, String name, String lastName, String middleName, String secondLastName)
     {
             this.id = id;
@@ -62,8 +68,9 @@ private String secondLanguage;
 
     public Person(){}
 
-    public Person(String id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage)
+    public Person(String id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian,String custodyType, String prefix )
     {
+
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -93,7 +100,51 @@ private String secondLanguage;
         this.needsInterpreter = needsInterpreter;
         this.civilStatus = civilStatus;
         this.secondLanguage = secondLanguage;
+        this.isDfCustodian = isDfCustodian;
+        this.prefix = prefix;
+        this.custodyType = custodyType;
+
     }
+
+
+    public Person(String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian,String custodyType, String prefix )
+    {
+
+
+        this.name = name;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.secondLastName = secondLastName;
+        this.suffix = suffix;
+        this.sex = sex;
+        this.ssn = ssn;
+        this.isAmericanCitizen = isAmericanCitizen;
+        this.birthdate = birthdate;
+        this.visaType = visaType;
+        this.visaNumber = visaNumber;
+        this.birthCountry = birthCountry;
+        this.city = city;
+        this.state = state;
+        this.birthPlace = birthPlace;
+        this.dateOfDeath = dateOfDeath;
+        this.adfanHasBcertCpy = adfanHasBcertCpy;
+        this.hairColor = hairColor;
+        this.eyeColor = eyeColor;
+        this.height = height; // inches
+        this.weight = weight;
+        this.particularMarkers = particularMarkers;
+        this.isPuertoRicoResident = isPuertoRicoResident;
+        this.mainLanguage = mainLanguage;
+        this.religion = religion;
+        this.needsInterpreter = needsInterpreter;
+        this.civilStatus = civilStatus;
+        this.secondLanguage = secondLanguage;
+        this.isDfCustodian = isDfCustodian;
+        this.prefix = prefix;
+        this.custodyType = custodyType;
+
+    }
+
 
 
     public String getId()
@@ -385,6 +436,36 @@ private String secondLanguage;
     {
         this.secondLanguage = secondLanguage;
     }
+   
 
+    public String getPrefix()
+    {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix)
+    {
+        this.prefix = prefix;
+    }
+
+    public boolean isDfCustodian()
+    {
+        return isDfCustodian;
+    }
+
+    public void setDfCustodian(boolean dfCustodian)
+    {
+        isDfCustodian = dfCustodian;
+    }
+
+    public String getCustodyType()
+    {
+        return custodyType;
+    }
+
+    public void setCustodyType(String custodyType)
+    {
+        this.custodyType = custodyType;
+    }
 
 }

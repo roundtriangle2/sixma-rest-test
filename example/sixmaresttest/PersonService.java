@@ -22,6 +22,10 @@ public class PersonService
 
     public Optional<Person> findPerson(String id){return  pRep.findById(id);}
 
+    public void insertPerson(Person person){
+        pRep.save(person);
+
+    }
 
     public Iterable<PeopleSummary> nameId()
     {
