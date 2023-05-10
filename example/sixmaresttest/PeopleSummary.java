@@ -6,8 +6,7 @@ public class PeopleSummary
 {
 
 
-
-
+//  Small class used to represent a user entry in a minimal way for the frontend
 
 
 private String id;

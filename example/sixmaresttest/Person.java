@@ -1,12 +1,29 @@
 package com.example.sixmaresttest;
-
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+
+/*
+* Class for interacting with person table.
+* Some fields have been added to make the entry
+* easier to handle in the front end.
+* For example: the deceased property was added
+* since it does not make sense for a live
+* person to have one.
+*
+
+*
+*
+*
+*
+* */
+
+
+
+
+
 
 @Entity(name = "PEOPLE")
 public class Person
@@ -25,12 +42,12 @@ private String middleName;
 private String secondLastName;
 private String suffix;
 private String sex;
-private int ssn;
+private String ssn;
 
 private boolean isAmericanCitizen;
 private Date birthdate;
 private String visaType;
-private int visaNumber;
+private String visaNumber;
 private String birthCountry;
 private String city;
 private String state;
@@ -43,6 +60,8 @@ private String eyeColor;
 private int height;
 private int weight;
 private String particularMarkers;
+
+private boolean deceased;
 
 private boolean isPuertoRicoResident;
 private String mainLanguage;
@@ -68,7 +87,9 @@ private String custodyType;
 
     public Person(){}
 
-    public Person(String id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian,String custodyType, String prefix )
+
+
+    public Person(String id, String name, String lastName, String middleName, String secondLastName, String suffix, String sex, String ssn, boolean isAmericanCitizen, Date birthdate, String visaType, String visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian, String custodyType, String prefix, boolean deceased )
     {
 
         this.id = id;
@@ -103,11 +124,12 @@ private String custodyType;
         this.isDfCustodian = isDfCustodian;
         this.prefix = prefix;
         this.custodyType = custodyType;
+        this.deceased = deceased;
 
     }
 
 
-    public Person(String name, String lastName, String middleName, String secondLastName, String suffix, String sex, int ssn, boolean isAmericanCitizen, Date birthdate, String visaType, int visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian,String custodyType, String prefix )
+    public Person(String name, String lastName, String middleName, String secondLastName, String suffix, String sex, String ssn, boolean isAmericanCitizen, Date birthdate, String visaType, String visaNumber, String birthCountry, String city, String state, String birthPlace, Date dateOfDeath, boolean adfanHasBcertCpy, String hairColor, String eyeColor, int height, int weight, String particularMarkers, boolean isPuertoRicoResident, String mainLanguage, String religion, boolean needsInterpreter, String civilStatus, String secondLanguage, boolean isDfCustodian, String custodyType, String prefix, boolean deceased )
     {
 
 
@@ -217,13 +239,16 @@ private String custodyType;
         this.sex = sex;
     }
 
-    public int getSsn()
+    public String getSsn()
     {
+
         return ssn;
     }
 
-    public void setSsn(int ssn)
+    public void setSsn(String ssn)
     {
+
+
         this.ssn = ssn;
     }
 
@@ -237,9 +262,10 @@ private String custodyType;
         isAmericanCitizen = americanCitizen;
     }
 
-    public Date getBirthdate()
+    public String getBirthdate()
     {
-        return birthdate;
+        //The front end  expects the date in this format
+        return  new SimpleDateFormat("yyyy-MM-dd").format(birthdate);
     }
 
     public void setBirthdate(Date birthdate)
@@ -257,12 +283,12 @@ private String custodyType;
         this.visaType = visaType;
     }
 
-    public int getVisaNumber()
+    public String getVisaNumber()
     {
         return visaNumber;
     }
 
-    public void setVisaNumber(int visaNumber)
+    public void setVisaNumber(String visaNumber)
     {
         this.visaNumber = visaNumber;
     }
@@ -301,15 +327,35 @@ private String custodyType;
     {
         return birthPlace;
     }
+    public boolean isDeceased()
+    {
+        return deceased;
+    }
+
+    public void setDeceased(boolean deceased)
+    {
+        this.deceased = deceased;
+    }
 
     public void setBirthPlace(String birthPlace)
     {
         this.birthPlace = birthPlace;
     }
 
-    public Date getDateOfDeath()
+    public String getDateOfDeath()
     {
-        return dateOfDeath;
+
+        if(dateOfDeath == null)
+        {
+            return null;
+        }
+        else
+        {
+            return  new SimpleDateFormat("yyyy-MM-dd").format(dateOfDeath);
+        }
+
+
+
     }
 
     public void setDateOfDeath(Date dateOfDeath)
