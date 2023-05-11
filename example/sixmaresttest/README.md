@@ -24,6 +24,12 @@ It was determined that, like the rejection of all non-authenticated requests, sa
 so I chose to handle it was plain text. 
 
 
-More improvements can be made such as server side validation, rejecting non-authenticated requests, safe ssn handling procedures, logging, etc, 
+More improvements can be made such as server side validation, rejecting non-authenticated requests, safe ssn handling procedures, logging, etc., 
 but I believe the current implementation is sufficient for this demonstration
+
+In the case of the table used for queries I opted for using a single one, since I do not know
+how this table will be related to other ones in the database, or if this definition will allow for data redundancy in other
+tables. The data types for the columns where defined in such a way to allow leeway for future changes in some columns ,
+however given  full sample of the type of data that was going to be inserted one could fine tune the data types in such a way
+that no space is wasted.
 
